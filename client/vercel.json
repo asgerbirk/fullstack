@@ -1,0 +1,31 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "app.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "public/**/*",
+      "use": "@sveltejs/adapter-static",
+      "config": {}
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/.*",
+      "dest": "app.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/index.html"
+    }
+  ],
+  "env": {
+    "MONGODB_URI": "$MONGODB_URI",
+    "ACCESS_TOKEN": "$ACCESS_TOKEN",
+    "REFRESH_TOKEN": "$REFRESH_TOKEN",
+    "FRONTEND_PORT": "$FRONTEND_PORT"
+  }
+}
+
