@@ -4,9 +4,9 @@
 
     function handleLogout() {
         localStorage.removeItem('jwt');
-        accessToken.set(null); // update the accessToken store
+        accessToken.set(null);
     }
-    $: isLoggedIn = !!$accessToken; // derived store based on the accessToken store
+    $: isLoggedIn = !!$accessToken;
 </script>
 
 <nav class="bg-gray-800 py-4">
