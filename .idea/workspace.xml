@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8803b1f6-81e2-4488-8f3f-e4846b138937" name="Changes" comment="vercel">
+      <change beforePath="$PROJECT_DIR$/client/vercel.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/notes.txt" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="layout" />
+        <option value="Navbar" />
+        <option value="Login" />
+        <option value="Home" />
+        <option value="Register" />
+        <option value="SignIn" />
+        <option value="SignOut" />
+        <option value="JavaScript File" />
+        <option value="package.json" />
+        <option value="tsconfig.json" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2OeJHEaYKWFATG1fwoJPPiSdDec" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "javascript.nodejs.core.library.configured.version": "18.14.1",
+    "javascript.nodejs.core.library.typings.version": "18.14.1",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8803b1f6-81e2-4488-8f3f-e4846b138937" name="Changes" comment="" />
+      <created>1681915025372</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1681915025372</updated>
+      <workItem from="1681915027079" duration="4815000" />
+      <workItem from="1682000310507" duration="6345000" />
+      <workItem from="1682058428744" duration="209000" />
+      <workItem from="1682062977160" duration="4493000" />
+      <workItem from="1682068325474" duration="407000" />
+      <workItem from="1682070278793" duration="155000" />
+      <workItem from="1682075983925" duration="1141000" />
+      <workItem from="1682089250131" duration="9744000" />
+      <workItem from="1682163707899" duration="14719000" />
+      <workItem from="1682338001458" duration="783000" />
+      <workItem from="1682339055182" duration="42000" />
+      <workItem from="1682343027806" duration="1937000" />
+      <workItem from="1682413374451" duration="343000" />
+      <workItem from="1682496251948" duration="14796000" />
+      <workItem from="1682514791812" duration="804000" />
+      <workItem from="1682516097537" duration="6983000" />
+      <workItem from="1682589139999" duration="54000" />
+      <workItem from="1682589197602" duration="3643000" />
+      <workItem from="1682593570990" duration="13835000" />
+    </task>
+    <task id="LOCAL-00001" summary="gitignore">
+      <created>1682089267144</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682089267144</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Need nodemailer and private routes in the frontend">
+      <created>1682593451777</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593451777</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Need nodemailer and private routes in the frontend">
+      <created>1682593708262</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593708262</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Need nodemailer and private routes in the frontend">
+      <created>1682593747279</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1682593747279</updated>
+    </task>
+    <task id="LOCAL-00005" summary="clean up some folders">
+      <created>1682594252064</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1682594252064</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added some accessToken on the frontend with some store">
+      <created>1682607321458</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682607321458</updated>
+    </task>
+    <task id="LOCAL-00007" summary="vercel">
+      <created>1682608580874</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1682608580874</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="gitignore" />
+    <MESSAGE value="Need nodemailer and private routes in the frontend" />
+    <MESSAGE value="clean up some folders" />
+    <MESSAGE value="added some accessToken on the frontend with some store" />
+    <MESSAGE value="vercel" />
+    <option name="LAST_COMMIT_MESSAGE" value="vercel" />
+  </component>
+</project>
