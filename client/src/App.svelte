@@ -12,7 +12,6 @@
   <Navbar/>
     <div class="container mx-auto px-4">
         <Route path="/" component={Home} />
-
         <Route path="/register" component={Register} />
         <Route path="/login" component={Login} />
     </div>

@@ -2,6 +2,7 @@
     import {navigate} from "svelte-navigator";
     import {BASE_URL} from "../store/globalStore.js";
     import Swal from "sweetalert2";
+    import {accessToken} from "../store/accessToken.js";
 
     let username = "";
     let password = "";
@@ -21,7 +22,8 @@
 
             if (response.status === 200){
                 const data = await response.json();
-                console.log(data.accessToken)
+                localStorage.setItem('jwt', data.accessToken);
+                accessToken.set(data.accessToken);
                 Swal.fire({
                     icon: "success",
                     title: "Login successful!",
@@ -92,7 +94,6 @@
             <a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" href="/register">
                 Register
             </a>
-
         </div>
     </form>
 </div>

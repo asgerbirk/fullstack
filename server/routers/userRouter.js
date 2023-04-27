@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import {UserModel} from "../models/Users.js";
 import dotenv from "dotenv"
 dotenv.config();
+import nodemailer from "nodemailer";
 
 
 const router = express.Router();
@@ -27,7 +28,6 @@ function authenticateJWT(req, res, next) {
     }
 }
 
-
 router.post("/register", async (req, res) => {
     const {username, email, password} = req.body;
     const user = await UserModel.findOne({username})
@@ -40,8 +40,11 @@ router.post("/register", async (req, res) => {
     const newUser = new UserModel({username, email, password: hashedPassword});
     await newUser.save()
 
+
     res.send({message: "User created"});
 })
+
+
 
 
 
@@ -75,6 +78,7 @@ router.post("/login", async (req, res) => {
 
 
 //refresh token do not work - maybe check on this later.
+/*
 router.post("/token", (req, res) => {
     const refreshToken = req.body.token;
     if (refreshToken == null) return res.sendStatus(400);
@@ -86,6 +90,8 @@ router.post("/token", (req, res) => {
         res.send({ accessToken: accessToken });
     });
 });
+
+ */
 
 router.get('/user', authenticateJWT, async (req, res) => {
     try {
@@ -100,16 +106,8 @@ router.get('/user', authenticateJWT, async (req, res) => {
     }
 });
 
-router.post("/forgotPassword", async (req, res) => {
-    const {email} = req.body
-try {
-    const checkIfUserExist  = await UserModel.findOne({email})
-    if (!checkIfUserExist) return res.sendStatus(404).send({message: "email does not exist"})
-}catch (error){
-        console.log(error)
-}
 
-})
+
 
 
 

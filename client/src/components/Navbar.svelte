@@ -1,5 +1,12 @@
 <script>
-    import {Link} from "svelte-navigator";
+    import { Link} from 'svelte-navigator';
+    import {accessToken} from "../store/accessToken.js";
+
+    function handleLogout() {
+        localStorage.removeItem('jwt');
+        accessToken.set(null); // update the accessToken store
+    }
+    $: isLoggedIn = !!$accessToken; // derived store based on the accessToken store
 </script>
 
 <nav class="bg-gray-800 py-4">
@@ -8,9 +15,15 @@
             <Link to="/" class="text-white font-bold text-lg">
                 Home
             </Link>
-            <Link to="/login" class="text-white hover:text-gray-400 text-lg">
-                Login
-            </Link>
+            {#if isLoggedIn}
+                <Link to="/login" on:click={handleLogout} class="text-white hover:text-gray-400 text-lg">
+                    Logout
+                </Link>
+            {:else}
+                <Link to="/login" class="text-white hover:text-gray-400 text-lg">
+                    Login
+                </Link>
+            {/if}
         </div>
     </div>
 </nav>
