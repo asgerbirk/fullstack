@@ -1,9 +1,10 @@
 <script>
   import { Router, Route } from "svelte-navigator";
-  import Home from "./components/Home.svelte";
+  import Home from "./pages/Home.svelte";
   import Navbar from "./components/Navbar.svelte";
-  import Register from "./components/Register.svelte";
-  import Login from "./components/Login.svelte";
+  import Register from "./pages/Register.svelte";
+  import Login from "./pages/Login.svelte";
+  import NotFound from "./errors/NotFound.svelte";
 </script>
 
 
@@ -11,9 +12,10 @@
 <Router>
   <Navbar/>
     <div class="container mx-auto px-4">
-        <Route path="/" component={Home} />
+        <Route path="/" component={Login} />
+        <Route path="/home" component={Home} />
         <Route path="/register" component={Register} />
-        <Route path="/login" component={Login} />
+        <Route path="*" component={NotFound} />
     </div>
 </Router>
 
