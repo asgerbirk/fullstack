@@ -1,6 +1,5 @@
 <script>
     import {Link, navigate} from 'svelte-navigator';
-    import { removeCookie } from '../utils/cookieUtils.js';
     import {isLoggedIn, removeAccessToken} from "../store/accessToken.js";
     import {BASE_URL} from "../store/urlDomain.js";
 

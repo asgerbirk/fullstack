@@ -14,5 +14,9 @@ export function removeAccessToken() {
     removeCookie('jwt');
 }
 
+export function updateLoggedInStatus(status) {
+    isLoggedIn.set(!!status);
+}
+
 
 

@@ -5,6 +5,7 @@ import {authenticateJWT} from "./auth.js";
 const router = express.Router();
 
 
+
 router.get("/user", authenticateJWT, async (req, res) => {
     try {
         const user = await UserModel.findOne({ username: req.user.username });
@@ -17,5 +18,7 @@ router.get("/user", authenticateJWT, async (req, res) => {
         res.status(500).send({ message: "Internal server error" });
     }
 });
+
+
 
 export {router as userRouter};

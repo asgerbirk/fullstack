@@ -5,6 +5,7 @@
   import Register from "./pages/Register.svelte";
   import Login from "./pages/Login.svelte";
   import NotFound from "./errors/NotFound.svelte";
+  import VerifyMail from "./pages/VerifyMail.svelte";
 </script>
 
 
@@ -15,6 +16,7 @@
         <Route path="/" component={Login} />
         <Route path="/home" component={Home} />
         <Route path="/register" component={Register} />
+        <Route path="/verify-email" component={VerifyMail} />
         <Route path="*" component={NotFound} />
     </div>
 </Router>

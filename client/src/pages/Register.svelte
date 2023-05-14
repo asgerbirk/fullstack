@@ -24,15 +24,23 @@
             if (response.status === 200){
                 const data = await response.json();
                 console.log(data)
-                Swal.fire({
-                    icon: "success",
-                    title: "User registration successful!",
-                    showConfirmButton: false,
-                    timer: 2000,
-                }).then(() => {
-                    navigate("/");
-                });
-
+                if (data.message === "User created and verification email sent") {
+                    await Swal.fire({
+                        icon: "info",
+                        title: "Almost there!",
+                        text: "Please check your email to verify your account",
+                        showConfirmButton: true,
+                    });
+                } else {
+                    Swal.fire({
+                        icon: "success",
+                        title: "User registration successful!",
+                        showConfirmButton: false,
+                        timer: 2000,
+                    }).then(() => {
+                        navigate("/");
+                    });
+                }
             }else {
                 const errorData = await response.json();
                 console.log(errorData.message);

@@ -22,7 +22,7 @@ app.use(cors({
 import helmet from "helmet";
 app.use(helmet());
 
-import connectDB from "./databases/connection.js";
+import connectDB from "./database/connection.js";
 connectDB()
 
 
