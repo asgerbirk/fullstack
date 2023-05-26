@@ -2,7 +2,7 @@
     import {navigate} from "svelte-navigator";
     import {BASE_URL} from "../store/urlDomain.js";
     import Swal from "sweetalert2";
-    import {accessToken, updateLoggedInStatus} from "../store/accessToken.js";
+    import {accessToken, isLoggedIn,} from "../store/accessToken.js";
     import {setCookie} from "../utils/cookieUtils.js";
 
     let username = "";
@@ -23,7 +23,7 @@
 
             if (response.status === 200){
                 const data = await response.json();
-                setCookie('jwt', data.accessToken, { expires: 1 }); // Example: set cookie with 7-day expiration
+                setCookie('jwt', data.accessToken, { expires: 1 });
                 accessToken.set(data.accessToken);
                 Swal.fire({
                     icon: "success",
@@ -33,6 +33,8 @@
                 }).then(() => {
                     navigate("/home");
                 });
+
+
             }else {
                 const errorData = await response.json();
                 console.log(errorData.message);

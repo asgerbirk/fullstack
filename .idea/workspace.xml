@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8803b1f6-81e2-4488-8f3f-e4846b138937" name="Changes" comment="i added nodemailer where I used 2 factor to confirm your account. I already have middleware to protect my routes, but next step is to give an error message if you go to a route where you not authenticated to.">
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Home.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Home.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Login.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Login.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/Register.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/Register.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/pages/VerifyMail.svelte" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/pages/VerifyMail.svelte" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/store/accessToken.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/accessToken.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/authRouter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/userRouter.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="NotFound" />
+        <option value="VerifyMail" />
+        <option value="ErrorMessage" />
+        <option value="Account" />
+        <option value="CreateProduct" />
+        <option value="Products" />
+        <option value="EditProduct" />
+        <option value="AddComment" />
+        <option value="JavaScript File" />
+        <option value="Footer" />
+        <option value="EditProductModal" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2P2lrDJ22YUjr7CSG9LZcrpxJtU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;18.14.1&quot;,
+    &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;18.14.1&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Applications/WebStorm.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/client/src/components" />
+      <recent name="$PROJECT_DIR$/client/src/pages" />
+      <recent name="$PROJECT_DIR$/client/public/pages" />
+      <recent name="$PROJECT_DIR$/client/public" />
+      <recent name="$PROJECT_DIR$/client/src/errors" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8803b1f6-81e2-4488-8f3f-e4846b138937" name="Changes" comment="need mail and private routes" />
+      <created>1682663253931</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682663253931</updated>
+      <workItem from="1682663255042" duration="30000" />
+      <workItem from="1682670044648" duration="611000" />
+      <workItem from="1682851558778" duration="55000" />
+      <workItem from="1682851618820" duration="63000" />
+      <workItem from="1683570634182" duration="9144000" />
+      <workItem from="1683581236734" duration="147000" />
+      <workItem from="1683581525590" duration="1599000" />
+      <workItem from="1683721074336" duration="10034000" />
+      <workItem from="1683808577480" duration="13991000" />
+      <workItem from="1683877800630" duration="149000" />
+      <workItem from="1684056820386" duration="12262000" />
+      <workItem from="1684102665496" duration="675000" />
+      <workItem from="1684103606385" duration="17000" />
+      <workItem from="1684136360651" duration="370000" />
+      <workItem from="1684141009125" duration="5725000" />
+      <workItem from="1684150706181" duration="29000" />
+      <workItem from="1684150748998" duration="32000" />
+      <workItem from="1684150790332" duration="25000" />
+      <workItem from="1684150922539" duration="1996000" />
+      <workItem from="1684152999419" duration="13000" />
+      <workItem from="1684153242512" duration="1924000" />
+      <workItem from="1684234306030" duration="5000" />
+      <workItem from="1684493373191" duration="19224000" />
+      <workItem from="1684529823293" duration="824000" />
+      <workItem from="1684612704347" duration="21000" />
+      <workItem from="1684612734231" duration="3861000" />
+      <workItem from="1684618576794" duration="7439000" />
+      <workItem from="1684655751971" duration="13238000" />
+      <workItem from="1684740998219" duration="24210000" />
+      <workItem from="1684831475146" duration="7749000" />
+      <workItem from="1684908660153" duration="2000" />
+      <workItem from="1684911568945" duration="474000" />
+      <workItem from="1684919335876" duration="183000" />
+      <workItem from="1684927232019" duration="18811000" />
+      <workItem from="1685000723913" duration="17000" />
+      <workItem from="1685000769641" duration="20505000" />
+      <workItem from="1685041886346" duration="472000" />
+      <workItem from="1685042462565" duration="2900000" />
+      <workItem from="1685046157015" duration="3415000" />
+    </task>
+    <task id="LOCAL-00001" summary="Cleaned the code - added some cookies and removed localstorage">
+      <created>1683839610010</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1683839610010</updated>
+    </task>
+    <task id="LOCAL-00002" summary="i added nodemailer where i used 2 factor to confirm your account. I already have middleware to protect my routes, but next step is to give an error message if you go to a route where you not authenticated to.">
+      <created>1684078695132</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684078695132</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Cleaned the code - added some cookies and removed localstorage" />
+    <MESSAGE value="i added nodemailer where i used 2 factor to confirm your account. I already have middleware to protect my routes, but next step is to give an error message if you go to a route where you not authenticated to." />
+    <option name="LAST_COMMIT_MESSAGE" value="i added nodemailer where i used 2 factor to confirm your account. I already have middleware to protect my routes, but next step is to give an error message if you go to a route where you not authenticated to." />
+  </component>
+</project>

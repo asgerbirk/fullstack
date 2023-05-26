@@ -27,19 +27,32 @@
 <nav class="bg-gray-800 py-4">
     <div class="container mx-auto px-4">
         <div class="flex items-center justify-between">
-            <Link to="/home" class="text-white font-bold text-lg">
-                Home
-            </Link>
+            <div class="flex items-center">
+                <Link to="/home" class="text-white font-bold text-2xl hover:text-gray-400">
+                    Zando Commerce
+                </Link>
+            </div>
+            <div class="flex items-center space-x-4">
 
-            {#if $isLoggedIn}
-                <Link to="/" on:click={handleLogout} class="text-white hover:text-gray-400 text-lg">
-                    Logout
+                <Link to="/createProduct" class="text-white  text-lg hover:text-gray-400">
+                    Create product
                 </Link>
-            {:else}
-                <Link to="/" class="text-white hover:text-gray-400 text-lg">
-                    Login
+                <Link to="/products" class="text-white  text-lg hover:text-gray-400">
+                    Products
                 </Link>
-            {/if}
+                <Link to="/account" class="text-white  text-lg hover:text-gray-400">
+                    Account
+                </Link>
+                {#if $isLoggedIn}
+                    <Link to="/" on:click={handleLogout} class="text-white hover:text-gray-400 text-lg">
+                        Logout
+                    </Link>
+                {:else}
+                    <Link to="/" class="text-white hover:text-gray-400 text-lg">
+                        Login
+                    </Link>
+                {/if}
+            </div>
         </div>
     </div>
 </nav>

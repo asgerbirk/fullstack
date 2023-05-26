@@ -1,12 +1,11 @@
 import express from "express";
 import {UserModel} from "../models/Users.js";
-import {authenticateJWT} from "./auth.js";
+import {authenticateJWT} from "./authRouter.js";
 
 const router = express.Router();
 
 
-
-router.get("/user", authenticateJWT, async (req, res) => {
+router.get("/users", authenticateJWT, async (req, res) => {
     try {
         const user = await UserModel.findOne({ username: req.user.username });
         if (!user) {

@@ -28,17 +28,9 @@
                     await Swal.fire({
                         icon: "info",
                         title: "Almost there!",
+                        timer: 2000,
                         text: "Please check your email to verify your account",
                         showConfirmButton: true,
-                    });
-                } else {
-                    Swal.fire({
-                        icon: "success",
-                        title: "User registration successful!",
-                        showConfirmButton: false,
-                        timer: 2000,
-                    }).then(() => {
-                        navigate("/");
                     });
                 }
             }else {

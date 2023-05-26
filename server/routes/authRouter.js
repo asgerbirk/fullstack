@@ -29,6 +29,10 @@ router.post("/login", async (req, res) => {
         return res.status(404).send({message: "No user with that username - you need to register"})
     }
 
+    if (!user.emailVerified) {
+       return res.status(401).send({message: "Please verify your email before logging in"});
+    }
+
     const checkIfPasswordValidation = await bcrypt.compare(password, user.password)
 
     if (!checkIfPasswordValidation) {
@@ -38,7 +42,7 @@ router.post("/login", async (req, res) => {
 //when you sign then you sign some data. you say id = user_id, then you have to put a secret for the token.
 // our secret is some numbers and letters that can be converted into the user.id object. The secret should be used when we verify if the user is authenticated.
 
-    const accessToken = jwt.sign({ username: user.username, id: user._id }, process.env.ACCESS_TOKEN, { expiresIn: "10m" });
+    const accessToken = jwt.sign({ username: user.username, id: user._id }, process.env.ACCESS_TOKEN, { expiresIn: "1h" });
 
 
     res.cookie("jwt", accessToken, {
@@ -52,16 +56,22 @@ router.post("/login", async (req, res) => {
 
     router.post("/register", async (req, res) => {
         const {username, email, password} = req.body;
-        const user = await UserModel.findOne({username})
 
+        const user = await UserModel.findOne({username})
         if (user){
             return res.status(404).send({message: "Username already exist"})
         }
+
+        const checkDuplicateEmail = await UserModel.findOne({email});
+        if (checkDuplicateEmail){
+            return res.status(400).send({message: "Email already exist"});
+        }
+
         const hashedPassword = await bcrypt.hash(password,10)
         const emailVerificationToken = crypto.randomBytes(20).toString("hex");
 
 
-        const newUser = new UserModel({username, email, password: hashedPassword, emailVerificationToken});
+        const newUser = new UserModel({username, email, password: hashedPassword, emailVerificationToken, emailVerified: false});
         await newUser.save()
 
         // send email
@@ -86,18 +96,26 @@ router.post("/login", async (req, res) => {
 router.get("/verify-email", async (req, res) => {
     const { token } = req.query;
 
-    const user = await UserModel.findOne({ emailVerificationToken: token });
+    try {
+        const user = await UserModel.findOne({ emailVerificationToken: token });
 
-    if (!user) {
-        return res.status(404).send({message: "Invalid or expired token"});
+        if (!user) {
+            console.log("Invalid or expired token");
+            return res.status(404).send({ message: "Invalid or expired token" });
+        }
+
+        user.emailVerified = true;
+        user.emailVerificationToken = null;
+        await user.save();
+
+        console.log("Email verified successfully");
+        res.send({ message: "Email verified successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).send({ message: "Internal server error" });
     }
-
-    user.emailVerified = true;
-    user.emailVerificationToken = null; // or null
-    await user.save();
-
-    res.send({message: "Email verified successfully"});
 });
+
 
 
 router.post("/logout", (req, res) => {
@@ -115,13 +133,15 @@ export function authenticateJWT(req, res, next) {
 
     try {
         const decodedToken = jwt.verify(token, process.env.ACCESS_TOKEN);
-        req.user = decodedToken; // Set the decoded token directly as req.user
+        req.user = decodedToken;
         next();
     } catch (error) {
         console.error(error);
         return res.sendStatus(403);
     }
 }
+
+
 
 
 
