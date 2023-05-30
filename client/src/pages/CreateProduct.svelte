@@ -21,7 +21,6 @@
     async function submit() {
         try {
             const formData = new FormData();
-            // Add each file to the form data
             console.log(files)
             for (let i = 0; i < files.length; i++) {
                 formData.append("images", files[i]);
@@ -35,7 +34,7 @@
             const response = await fetch($BASE_URL + "/products", {
                 method: "POST",
                 body: formData,
-                credentials: "include" // Include credentials for sending cookies
+                credentials: "include"
             });
 
             if (response.status === 200) {
@@ -93,7 +92,7 @@
                        id="price" type="number" bind:value={price} placeholder="Product Price" />
             </div>
             <div class="flex items-center justify-between">
-                <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit">
                     Submit
                 </button>
             </div>
@@ -103,7 +102,7 @@
 {:else}
     <div class="flex flex-col items-center justify-center h-screen">
         <h2 class="text-5xl mb-4">Forbidden - either your token expired or you are not signed in - click here to sign in</h2>
-        <a href="/" class="text-3xl bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded">
+        <a href="/" class="text-3xl text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg  px-5 py-2.5 text-center mr-2 mb-2">
             Login
         </a>
     </div>

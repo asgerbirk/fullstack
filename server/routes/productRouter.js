@@ -4,6 +4,7 @@ import {authenticateJWT} from "./authRouter.js";
 import dotenv from 'dotenv';
 import {PutObjectCommand, S3Client} from "@aws-sdk/client-s3";
 import {ProductModel} from "../models/Products.js";
+import mongoose from "mongoose";
 dotenv.config();
 
 
@@ -51,37 +52,6 @@ router.post("/products", authenticateJWT, upload.array("images"), async (req, re
 
     res.status(200).send(newProduct);
 });
-/*
-router.post("/products", authenticateJWT, upload.array("images"), async (req, res) => {
-    console.log("req.body", req.body)
-    console.log(req.file)
-
-
-
-    req.file.buffer;
-
-    const params = {
-        Bucket: process.env.S3_BUCKET,
-        Key: req.file.originalname,
-        Body: req.file.buffer,
-        ContentType: req.file.mimeType,
-    }
-
-    const command = new PutObjectCommand(params)
-    await s3.send(command)
-
-    // Construct the file url
-    const fileUrl = `https://${process.env.S3_BUCKET}.s3.${process.env.S3_REGION}.amazonaws.com/${req.file.originalname}`;
-
-    // Save the product to the database
-    const { name, description, price } = req.body;
-    const newProduct = new ProductModel({ name, description, price, imageUrl: fileUrl, username: req.user.username, userId: req.user.id   });
-    await newProduct.save();
-
-  res.status(200).send(newProduct);
-});
-
- */
 
 router.get("/products", async (req, res) => {
     try {
@@ -92,11 +62,11 @@ router.get("/products", async (req, res) => {
     }
 })
 
-router.get("/products/:userId", authenticateJWT, async (req, res) => {
-    const { userId } = req.params;
+router.get("/products/:username", authenticateJWT, async (req, res) => {
+    const { username } = req.params;
 
     try {
-        const products = await ProductModel.find({ username: userId });
+        const products = await ProductModel.find({ username: username });
         res.send(products);
     } catch (error) {
         console.error(error);
@@ -150,6 +120,43 @@ router.delete("/products/:productId", authenticateJWT, async (req, res) => {
         res.status(500).send({ message: "Internal Server Error" });
     }
 })
+
+// Backend route to handle liking/unliking a product
+router.post('/products/:productId/like', authenticateJWT, async (req, res) => {
+    const { productId } = req.params;
+    const { username } = req.user;
+
+    try {
+        const product = await ProductModel.findById(productId);
+
+        if (!product) {
+            return res.status(404).json({ message: 'Product not found' });
+        }
+
+        // Check if the user has already liked the product
+        const likedIndex = product.likes.indexOf(username);
+        if (likedIndex > -1) {
+            // User has already liked the product, so remove the like
+            product.likes.splice(likedIndex, 1);
+        } else {
+            // User has not liked the product, so add the like
+            product.likes.push(username);
+        }
+
+        // Save the updated product with likes
+        const updatedProduct = await product.save();
+
+        res.status(200).json({ message: 'Product liked/unliked successfully', product: updatedProduct });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Internal Server Error' });
+    }
+});
+
+
+
+
+
 
 
 

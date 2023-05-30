@@ -52,6 +52,7 @@ router.post("/login", async (req, res) => {
 
     res.send({accessToken, user: username})
     console.log(accessToken)
+    console.log(user)
 });
 
     router.post("/register", async (req, res) => {

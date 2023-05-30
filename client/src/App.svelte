@@ -4,7 +4,6 @@
   import Navbar from "./components/Navbar.svelte";
   import Register from "./pages/Register.svelte";
   import Login from "./pages/Login.svelte";
-  import NotFound from "./errors/NotFound.svelte";
   import VerifyMail from "./pages/VerifyMail.svelte";
   import Account from "./pages/Account.svelte";
   import CreateProduct from "./pages/CreateProduct.svelte";
@@ -12,6 +11,8 @@
   import ChatBot from "./components/ChatBot.svelte";
   import Footer from "./components/Footer.svelte";
   import EditProductModal from "./pages/EditProductModal.svelte";
+  import Cart from "./pages/Cart.svelte";
+  import CartItem from "./pages/CartItem.svelte";
 </script>
 
 
@@ -27,10 +28,10 @@
         <Route path="/createProduct" component={CreateProduct} />
         <Route path="/products" component={Products} />
         <Route path="/chatBot" component={ChatBot} />
-        <Route path="/e/:productId" component={EditProductModal}/>
-        <Route path="*" component={NotFound} />
+        <Route path="/edit/:productId" component={EditProductModal}/>
+        <Route path="/cart" component={Cart}/>
+        <Route path="/cartItem" component={CartItem}/>
     </div>
-
     <Footer/>
 </Router>
 

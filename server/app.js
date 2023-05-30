@@ -82,6 +82,9 @@ app.use(authRouter)
 import {productRouter} from "./routes/productRouter.js";
 app.use(productRouter)
 
+import {cartRouter} from "./routes/cartRouter.js";
+app.use(cartRouter)
+
 
 const PORT = process.env.PORT || 8080;
 server.listen(PORT, () => console.log("Server is running on port", PORT));

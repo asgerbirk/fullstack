@@ -2,7 +2,9 @@
     import {BASE_URL} from "../store/urlDomain.js";
     import {onMount} from "svelte";
     import Carousel from 'svelte-carousel';
-    import ChatBot from "../components/ChatBot.svelte";
+    import {checkAuthentication} from "../auth/auth.js";
+    import {cartCount} from "../store/cartStore.js";
+
 
     let products = [];
     let search = '';
@@ -11,12 +13,19 @@
     let user;
 
 
+
+    let isLiked = false;
+
+
+
     onMount(async () => {
         try {
             const response = await fetch($BASE_URL + "/products");
             if (response.status === 200) {
                 products = await response.json();
             }
+            user = await checkAuthentication();
+
         } catch (error) {
             console.error('Network Error:', error);
         }
@@ -36,6 +45,53 @@
                 return 0;
         }
     });
+
+
+    function toggleLike() {
+        isLiked = !isLiked;
+    }
+
+    async function addToCart(productId) {
+
+
+
+
+        if (!user) {
+            console.log('User is not authenticated');
+            return;
+        }
+
+
+
+        try {
+            const response = await fetch($BASE_URL + `/carts/${user._id}`, {
+                method: 'POST',
+                credentials: "include",
+                headers: {
+                    'Content-Type': 'application/json' // Add this line to set the request headers
+                },
+                body: JSON.stringify({
+                    productId,
+                })
+            });
+
+            if (response.ok) {
+                console.log('Product added to cart successfully');
+                cartCount.update(count => count + 1); // increment the count in the store
+            } else {
+                const responseData = await response.json();
+                if (response.status === 400 && responseData.message === 'Product is already in the cart') {
+                    console.log('Product is already in the cart');
+                    alert('Product is already in the cart');
+                } else {
+                    console.log('Failed to add product to cart');
+                }
+            }
+        } catch (error) {
+            console.error('Failed to add product to cart:', error);
+        }
+    }
+
 
 
 
@@ -67,22 +123,30 @@
         <div class="relative pt-6">
             <div class="flex justify-center">
                 <Carousel>
-                {#each product.imageUrls as imageUrls}
-                    <img
-                            class="w-full h-64 object-cover rounded shadow transform transition duration-500 hover:scale-105 hover:shadow-lg"
-                            src={imageUrls}
-                            alt={product.name}
-                    />
-                {/each}
+                    {#each product.imageUrls as imageUrls}
+                        <img
+                                class="w-full h-64 object-cover rounded shadow transform transition duration-500 hover:scale-105 hover:shadow-lg"
+                                src={imageUrls}
+                                alt={product.name}
+                        />
+                    {/each}
                 </Carousel>
             </div>
-            <div class="mt-2">
+            <div class="mt-2 ml-8">
                 <div class="flex justify-between items-center">
                     <h2 class="text-lg font-bold">{product.name}</h2>
-                    <p class="text-xs text-gray-500">Posted by: {product.username}</p>
+                    <div class="flex-grow"></div>
+                    <div class="mr-7">
+                        <p class="text-xs text-gray-500 mt-[-5]">Posted by: {product.username}</p>
+                    </div>
                 </div>
                 <p class="text-sm text-gray-600">{product.description}</p>
-                <p class="text-md font-semibold">Price: ${product.price}</p>
+                <div class="flex items-center">
+                    <p class="text-md font-semibold mb-3">Price: ${product.price}</p>
+                </div>
+                <button class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-1 text-center" on:click={() => addToCart(product._id)}>
+                    Add to cart
+                </button>
             </div>
         </div>
     {/each}

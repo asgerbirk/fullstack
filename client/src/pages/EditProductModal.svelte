@@ -70,7 +70,6 @@
         <div class="modal-overlay bg-black opacity-50"></div>
         <div class="modal-container bg-white rounded-lg shadow-lg max-w-xl">
             <form on:submit={handleSubmit} class="modal-content p-8">
-
                 <div class="flex justify-center">
                     <Carousel>
                         {#each product.imageUrls as imageUrls}
@@ -81,26 +80,32 @@
                             />
                         {/each}
                     </Carousel>
+
+                </div>
+                <label for="name" class="block text-gray-700 text-xl font-bold mb-2 text-center">It is not possible to update the pictures!</label>
+
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 text-sm font-bold mb-2">Name:</label>
+                    <input type="text" id="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" bind:value={name} />
                 </div>
 
-                <div class="mb-8">
-                    <label for="name" class="block text-gray-700 font-bold text-lg mb-2">Name:</label>
-                    <input type="text" id="name" class="form-input w-full text-lg" bind:value={name} />
+                <div class="mb-4">
+                    <label for="description" class="block text-gray-700 text-sm font-bold mb-2">Description:</label>
+                    <textarea id="description" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" bind:value={description}></textarea>
                 </div>
 
-                <div class="mb-8">
-                    <label for="description" class="block text-gray-700 font-bold text-lg mb-2">Description:</label>
-                    <textarea id="description" class="form-textarea w-full text-lg" bind:value={description}></textarea>
+                <div class="mb-4">
+                    <label for="price" class="block text-gray-700 text-sm font-bold mb-2">Price:</label>
+                    <input type="number" id="price" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" bind:value={price} />
                 </div>
 
-                <div class="mb-8">
-                    <label for="price" class="block text-gray-700 font-bold text-lg mb-2">Price:</label>
-                    <input type="number" id="price" class="form-input w-full text-lg" bind:value={price} />
-                </div>
-
-                <div class="flex justify-between">
-                    <button type="button" on:click={() => showModal = false} class="bg-red-600 text-white font-bold py-2 px-4 rounded">Cancel</button>
-                    <button type="submit" class="bg-blue-500 text-white font-bold py-2 px-4 rounded">Update</button>
+                <div class="flex items-center justify-between">
+                    <button type="button" on:click={() => showModal = false} class="text-white bg-gradient-to-r from-red-400 via-red-500 to-red-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 dark:focus:ring-red-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                        Cancel
+                    </button>
+                    <button type="submit" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
+                        Update
+                    </button>
                 </div>
             </form>
         </div>
